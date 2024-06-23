@@ -2,8 +2,13 @@
     <div class="container">
         <div class="row variable-gutters">
             <div class="col-8">
+<<<<<<< HEAD
                 <a href="https://www.miur.gov.it/" target="_blank" style="margin-right: 10px" aria-label="MIUR - Collegamento esterno - Apre su nuova scheda">
                     <strong>MIUR</strong>
+=======
+                <a href="https://www.miur.gov.it/" target="_blank" aria-label="Ministero dell'Istruzione e del Merito">
+                    <strong>Ministero dell'Istruzione e del Merito</strong>
+>>>>>>> merge
                 </a>
                 <a href="mailto:KRPC02000L@istruzione.it" style="margin-right: 10px" target="_blank" aria-label="Indirizzo email del liceo">
                     <strong> <i class="fa fa-envelope" aria-hidden="true"></i> KRPC02000L@istruzione.it</strong>

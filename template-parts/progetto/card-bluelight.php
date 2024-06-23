@@ -4,7 +4,11 @@ $autore = get_user_by("ID", $progetto->post_author);
 $post = $progetto;
 ?>
 
+<<<<<<< HEAD
     <div class="card card-bg card-thumb-rounded mb-3 h-100">
+=======
+    <div class="card card-bg bg-white card-thumb-rounded mb-3 h-100">
+>>>>>>> merge
         <div class="card-body">
             <div class="card-content">
                 <a href="<?php echo get_permalink($progetto); ?>" class="project-card-title"><h3 class="mb-0"><?php echo $progetto->post_title; ?></h3></a>    
@@ -38,6 +42,12 @@ $post = $progetto;
             */ ?>
         </div>
         <div class="card-comments-wrapper mb-1">
+<<<<<<< HEAD
             <?php // get_template_part("template-parts/autore/card"); ?>
         </div>/card-comments-wrapper -->
     </div><!-- /card -->
+=======
+            <?php get_template_part("template-parts/autore/card"); ?>
+        </div><!-- /card-comments-wrapper -->
+    </div><!-- /card -->
+>>>>>>> merge
