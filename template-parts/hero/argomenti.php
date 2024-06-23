@@ -1,5 +1,5 @@
 <?php
-$testo_argomenti = dsi_get_option("testo_argomenti", "argomenti");
+$testo_argomenti = dsi_get_option("testo_argomenti", "setup");
 
 ?>
     <section class="section bg-petrol py-5 position-relative d-flex align-items-center overflow-hidden" >

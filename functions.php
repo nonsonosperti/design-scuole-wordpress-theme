@@ -139,14 +139,15 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// image size
-		if ( function_exists( 'add_image_size' ) ) {
-			$thumbnailsizes = dsi_get_img_thumbnails();
-			
-			foreach ($thumbnailsizes as &$size) {
-				add_image_size($size["name"], $size["width"], $size["height"] , $size["crop"]);
-			}
-		}
+        // image size
+        if ( function_exists( 'add_image_size' ) ) {
+            add_image_size( 'article-simple-thumb', 500, 384 , true);
+            add_image_size( 'item-thumb', 280, 280 , true);
+            add_image_size( 'item-gallery', 730, 485 , true);
+            add_image_size( 'vertical-card', 350, 200 , true);
+
+            add_image_size( 'banner', 600, 250 , false);
+        }
 
         // This theme uses wp_nav_menu()
 		register_nav_menus( array(
@@ -157,7 +158,6 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 			/*'menu-classe' => esc_html__( 'Sottovoci del menu principale, voce "La mia classe"', 'design_scuole_italia' ),*/
 			'menu-topright' => esc_html__( 'Menu secondario (in alto a destra)', 'design_scuole_italia' ),
 			'menu-footer' => esc_html__( 'Menu a piè di pagina', 'design_scuole_italia' ),
-			'menu-utente' => esc_html__( 'Menu utente', 'design_scuole_italia' ),
 		) );
 
 	}
@@ -328,12 +328,7 @@ function breadcrumb_fix( $string, $arg1 ) {
 		$string = str_replace("Documenti", "Le carte della scuola",$string);
 		$string = str_replace("Strutture", "Organizzazione",$string);
 		$string = str_replace("?post_type=indirizzo","",$string);
-		$string = str_replace("Indirizzo di Studio", "Percorsi di studio",$string);
-		$string = str_replace("Luoghi", "I luoghi",$string);
-		$string = str_replace("Schede Progetti", "I progetti delle classi",$string);
-		$string = str_replace("Schede Didattiche", "Le schede didattiche",$string);
-		$string = str_replace("Tutti i Servizi", "Tutti i servizi",$string);		
-		$string = str_replace("La Storia", "La storia",$string);
+		$string = str_replace("Indirizzo di Studio", "Indirizzi di studio",$string);
 
     return $string;
 }

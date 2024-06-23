@@ -31,9 +31,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             $link_schede_servizi = dsi_get_meta("link_schede_servizi");
             $link_schede_progetti = dsi_get_meta("link_schede_progetti");
 
-            $link_schede_documenti = dsi_get_meta("link_schede_documenti");
-            $file_documenti = dsi_get_meta("file_documenti");        
-
             $responsabile = dsi_get_meta("responsabile")?dsi_get_meta("responsabile"):"";
             $persone = dsi_get_meta("persone");
             $altri_componenti = dsi_get_meta("altri_componenti");
@@ -144,30 +141,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-servizi" title="Vai al paragrafo <?php _e("Servizi", "design_scuole_italia"); ?>"><?php _e("Servizi", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-
-
-
-
-
-
-                                        <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
-                                            <li>
-                                                <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
-                                            </li>
-                                        <?php } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
                                         <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail  || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-organizzazione" title="Vai al paragrafo <?php _e("Organizzazione e contatti", "design_scuole_italia"); ?>"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></a>
@@ -271,48 +244,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         ?>
                                     </div><!-- /card-deck card-deck-spaced -->
                                 <?php } ?>
-
-
-
-
-                                <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
-                                    ?>
-                                    <h2 class="h4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h2>
-                                    <div class="row variable-gutters">
-                                        <div class="col-lg-12">
-                                            <div class="card-deck card-deck-spaced">
-                                                <?php
-                                                if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
-                                                    global $documento;
-                                                    foreach ( $link_schede_documenti as $link_scheda_documento ) {
-                                                        $documento = get_post( $link_scheda_documento );
-                                                        get_template_part( "template-parts/documento/card" );
-                                                    }
-                                                }
-
-                                                global $idfile, $nomefile;
-                                                if(is_array($file_documenti) && count($file_documenti)>0) {
-
-                                                    foreach ( $file_documenti as $idfile => $nomefile ) {
-                                                        get_template_part( "template-parts/documento/file" );
-                                                    }
-                                                }
-
-                                                ?>
-                                            </div><!-- /card-deck card-deck-spaced -->
-                                        </div><!-- /col-lg-12 -->
-                                    </div><!-- /row -->
-                                    <?php
-                                }?>
-
-
-
-
-
-
-
-
-
                                 <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
                                     <h2 id="art-par-organizzazione" class="h4"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></h2>
 
@@ -357,21 +288,11 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 $autore = get_user_by("ID", $idutente);
                                                 ?>
                                                 <div class="card card-bg card-avatar rounded">
-                                                    <?php
-														$privacy_hidden = get_user_meta( $autore->ID, '_dsi_persona_privacy_hidden', true);
-                        
-														if($privacy_hidden == "false") {
-															?><a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php
-														}
-													?>
+                                                    <a href="<?php echo get_author_posts_url( $autore->ID);  ?>">
                                                         <div class="card-body">
                                                             <?php get_template_part("template-parts/autore/card"); ?>
                                                         </div>
-                                                    <?php
-														if($privacy_hidden == "false") {
-															?></a><?php
-														}
-													?>
+                                                    </a>
                                                 </div><!-- /card card-bg card-avatar rounded -->
                                                 <?php
                                             }
@@ -390,21 +311,11 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 $autore = get_user_by("ID", $idutente);
                                                 ?>
                                                 <div class="card card-bg card-avatar rounded">
-                                                <?php
-													$privacy_hidden = get_user_meta( $idutente, '_dsi_persona_privacy_hidden', true);
-                      
-													if($privacy_hidden == "false") {
-														?><a href="<?php echo get_author_posts_url($idutente);  ?>"><?php
-													}
-												?>
+                                                    <a href="<?php echo get_author_posts_url($idutente); ?>">
                                                         <div class="card-body">
                                                             <?php get_template_part("template-parts/autore/card"); ?>
                                                         </div>
-												<?php
-													if($privacy_hidden == "false") {
-														?></a><?php
-													}
-												?>
+                                                    </a>
                                                 </div><!-- /card card-bg card-avatar rounded -->
                                                 <?php
                                             }
@@ -445,7 +356,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             $c=0;
                                             foreach ($sedi as $idluogo){
                                                 $c++;
-                                            	$struttura = $post;
                                                 $luogo = get_post($idluogo);
                                                 get_template_part( "template-parts/luogo/card", "nophone");
 

@@ -176,21 +176,11 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             $autore = get_user_by("ID", $idutente);
                                             ?>
                                             <div class="card card-bg card-avatar rounded">
-                                                <?php
-													$privacy_hidden = get_user_meta( $autore->ID, '_dsi_persona_privacy_hidden', true);
-                        
-													if($privacy_hidden == "false") {
-														?><a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php
-													}
-												?>
+                                                <a href="<?php echo get_author_posts_url( $autore->ID);  ?>">
                                                     <div class="card-body">
                                                         <?php get_template_part("template-parts/autore/card"); ?>
                                                     </div>
-                                                <?php
-													if($privacy_hidden == "false") {
-														?></a><?php
-													}
-												?>
+                                                </a>
                                             </div><!-- /card card-bg card-avatar rounded -->
                                             <?php
                                         }

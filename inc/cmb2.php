@@ -250,7 +250,7 @@ function dsi_get_approfondimenti_options( ) {
 
     $args = array(
         "post_type" => array("post", "circolare"),
-        "posts_per_page" => 20
+        "posts_per_page" => 200
     );
     $items = get_posts($args);
 

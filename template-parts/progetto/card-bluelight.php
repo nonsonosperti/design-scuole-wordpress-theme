@@ -38,12 +38,6 @@ $post = $progetto;
             */ ?>
         </div>
         <div class="card-comments-wrapper mb-1">
-<<<<<<< HEAD
             <?php // get_template_part("template-parts/autore/card"); ?>
         </div>/card-comments-wrapper -->
     </div><!-- /card -->
-=======
-            <?php get_template_part("template-parts/autore/card"); ?>
-        </div><!-- /card-comments-wrapper -->
-    </div><!-- /card -->
->>>>>>> merge

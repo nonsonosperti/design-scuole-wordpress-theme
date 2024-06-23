@@ -12,16 +12,16 @@ if(is_array($posts) && count($posts)) {
             <div class="row variable-gutters">
                 <div class="col">
                     <div class="section-title mb-5">
-                        <h2><?php _e("Le schede didattiche", "design_scuole_italia"); ?></h2>
+                        <h3><?php _e("Schede didattiche", "design_scuole_italia"); ?></h3>
                     </div>
 
-                    <div class="splide splide-double mb-1" data-bs-carousel-splide>
-                        <div class="splide__track" >
+                    <div class="splide splide-double mb-5" data-bs-carousel-splide>
+                        <div class="splide__track">
                             <ul class="splide__list">
                                 <?php
                                 foreach ($posts as $post) { ?>
-                                    <li class="splide__slide mb-0">
-                                        <div class="item rounded">
+                                    <li class="splide__slide">
+                                        <div class="item">
                                             <?php get_template_part("template-parts/didattica/card"); ?>
                                         </div>
                                     </li>
@@ -33,7 +33,7 @@ if(is_array($posts) && count($posts)) {
             </div><!-- /row -->
 
         </div><!-- /container -->
-        <div class="pb-5 text-center mt-2">
+        <div class="pb-5 text-center mt-4">
             <a class="text-underline" href="<?php echo get_post_type_archive_link("scheda_didattica") ?>"><strong><?php _e("Vedi tutte le schede didattiche", "design_scuole_italia"); ?></strong></a>
         </div>
     </section><!-- /section --><?php
