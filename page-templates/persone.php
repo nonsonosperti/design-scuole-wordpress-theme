@@ -30,7 +30,6 @@ function visualizza_utenti($ruolo_utente, $intestazione_sezione) {
         )
     );
 
-<<<<<<< HEAD
                     $classcolor = "bg-white";
                     if ($i % 2)
                         $classcolor = "bg-gray-light";
@@ -174,11 +173,6 @@ function visualizza_utenti($ruolo_utente, $intestazione_sezione) {
             }
 
         endwhile; // End of the loop.
-=======
-$users = get_users($args);
-    $number_of_users = count($users);
-    if ($number_of_users > 0) {
->>>>>>> merge
         ?>
         <section class="section mt-4">
             <div class="container">

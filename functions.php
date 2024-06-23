@@ -139,17 +139,6 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-<<<<<<< HEAD
-        // image size
-        if ( function_exists( 'add_image_size' ) ) {
-            add_image_size( 'article-simple-thumb', 500, 384 , true);
-            add_image_size( 'item-thumb', 280, 280 , true);
-            add_image_size( 'item-gallery', 730, 485 , true);
-            add_image_size( 'vertical-card', 350, 200 , true);
-
-            add_image_size( 'banner', 600, 250 , false);
-        }
-=======
 		// image size
 		if ( function_exists( 'add_image_size' ) ) {
 			$thumbnailsizes = dsi_get_img_thumbnails();
@@ -158,7 +147,6 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 				add_image_size($size["name"], $size["width"], $size["height"] , $size["crop"]);
 			}
 		}
->>>>>>> merge
 
         // This theme uses wp_nav_menu()
 		register_nav_menus( array(
@@ -471,7 +459,6 @@ function reserved_file_check(){
 }
 add_action( 'init', 'reserved_file_check', 10, 2);
 
-<<<<<<< HEAD
 function add_logo_Login_page() {
 	echo '<style>.login h1 a {
 	background-repeat: no-repeat;
@@ -487,7 +474,6 @@ function add_logo_Login_page() {
 
 	
 add_filter('jpeg_quality', function($arg){return 100;});
-=======
 // aggiungi data elements alla pagina note-legali
 function insert_data_attribute_note_legali( $content ) {
 	if (is_page( 'note-legali')) {
@@ -524,4 +510,3 @@ function dsi_login_redirect( $redirect_to, $request, $user ) {
 }
 
 add_filter( 'login_redirect', 'dsi_login_redirect', 10, 3 );
->>>>>>> merge

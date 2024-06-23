@@ -7,11 +7,7 @@ $posts = get_posts($args);
 if(is_array($posts) && count($posts)) {
 
     ?>
-<<<<<<< HEAD
     <section class="section bg-bluelectric py-5">
-=======
-    <section class="section bg-light py-5">
->>>>>>> merge
         <div class="container">
             <div class="row variable-gutters">
                 <div class="col">
