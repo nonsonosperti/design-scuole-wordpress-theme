@@ -1,5 +1,7 @@
 #pre-header.mobile{display: none}
 
+#quote-home{color: #EA7653 !important}
+
 @media (max-width: 1180px) {
     #pre-header.desktop{display: none}
     #pre-header.mobile{display: flex}

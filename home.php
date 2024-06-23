@@ -30,7 +30,7 @@ get_header();
 			<div class="row variable-gutters justify-content-center">
 				<div class="col-md-10">
 					<div class="big-quote">
-						<h2 style="font-size: 5rem">Da sempre una realtà differente nel sistema scolastico italiano</h2>
+						<h2 style="font-size: 5rem" id="quote-home">Da sempre una realtà differente nel sistema scolastico italiano</h2>
 					</div><!-- /big-quote -->
 				</div><!-- /col-md-10 -->
 			</div><!-- /row -->
