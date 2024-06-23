@@ -1,11 +1,12 @@
 <?php
-global $post, $set_card_top_margin;
+global $post, $autore, $set_card_top_margin, $set_card_wrapper;
+$autore = get_user_by("ID", $post->post_author);
 
 $image_id= get_post_thumbnail_id($post);
 $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 
 
-?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded <?php echo $set_card_top_margin ? "mt-2" : ""; ?>">
+?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded <?php echo $set_card_wrapper ? "card-wrapper" : ""; ?> <?php echo $set_card_top_margin ? "mt-2" : ""; ?>">
 	<div class="card-body">
     <?php if($image_url) { ?>
 			<div class="card-thumb">
