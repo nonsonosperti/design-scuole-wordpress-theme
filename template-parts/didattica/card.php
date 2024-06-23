@@ -56,11 +56,11 @@ if(!$image_url)
                 $privacy_hidden = get_user_meta( $autore->ID, '_dsi_persona_privacy_hidden', true);
                 if($privacy_hidden == "false") {
             ?>
-                <p class="text-dark">da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php echo dsi_get_display_name($autore->ID); ?></a></p>
+                <p>da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php echo dsi_get_display_name($autore->ID); ?></a></p>
             <?php
                 } else {
             ?>
-                <p class="text-dark">curato dal personale scolastico</p>
+                <p>curato dal personale scolastico</p>
             <?php
                 }
             ?>

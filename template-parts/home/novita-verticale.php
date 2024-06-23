@@ -88,11 +88,12 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
             if (is_array($posts) && count($posts)) { 
             ?>
-            <div class="col-lg-<?php echo $lg; ?>">
+            <div class="col-lg-12">
                 <div class="title-section pb-4">
                     <h2><?php echo $tipologia_notizia->name; ?></h2>
                 </div><!-- /title-section -->
 
+                <div style="display: flex; justify-content: space-between" id="row-circolare">
                 <?php
                 if((count($tipologie_notizie) == 1) && ($column > 1))
                     echo '<div class="row variable-gutters">';
@@ -102,7 +103,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 foreach ($posts as $post) {
                     if((count($tipologie_notizie) == 1) && ($column > 1))
                         echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
-
+                    
                     get_template_part("template-parts/single/card", "vertical-thumb");
 
                     if((count($tipologie_notizie) == 1) && ($column > 1))
@@ -114,6 +115,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 if((count($tipologie_notizie) == 1) && ($column > 1))
                     echo '</div>';
                 ?>
+                </div>
                 <div class="py-4">
                     <a class="text-underline" href="<?php echo get_term_link($tipologia_notizia); ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
                 </div>
@@ -126,7 +128,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
     if($home_show_events != "false") { ?>
 
-        <div class="col-lg-4">
+        <div class="col-lg-12">
 
         <!-- <div class="title-section <?php if($home_show_events != "false") echo 'pb-4'; ?>"> -->
         <div class="title-section pb-4">
@@ -204,11 +206,21 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
     }
 
     if($home_show_circolari != "false") { ?>
-        <div class="col-lg-4">
+    <?php
+    /*
+    Modifica per Liceo Pitagora
+        Correzione Circolari
+
+    START
+    */
+    ?>
+        <div class="col-lg-12">
 
             <div class="title-section pb-4">
                 <h2><?php _e("Circolari", "design_scuole_italia"); ?></h2>
             </div><!-- /title-section -->
+
+            <div style="display: flex; justify-content: space-between" id="row-circolare">
             <?php
             $args = array('post_type' => 'circolare',
                 'posts_per_page' => $home_circolari_count
@@ -221,10 +233,34 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             }
             ?>
 
+            </div>
+
             <div class="py-4">
                 <a class="text-underline" href="<?php echo get_post_type_archive_link("circolare"); ?>"><strong><?php _e("Vedi tutte", "design_scuole_italia"); ?></strong></a>
             </div>
 
+            
+        </div>
+
+      
+
+        <?php
+         /*
+         END
+
+         Modifica per Liceo Pitagora     
+         */
+        ?>
+
+        <div class="col-lg-12">
+        <div class="title-section pb-4">
+                <h2><?php _e("Albo Online", "design_scuole_italia"); ?></h2>
+            </div><!-- /title-section -->
+            <?php echo do_shortcode('[wp-rss-aggregator feeds="albo-online"]'); ?>
+
+            <div class="py-4">
+                <a class="text-underline" href="https://nuvola.madisoft.it/bacheca-digitale/bacheca/KRPC02000L/1/IN_PUBBLICAZIONE/0/show"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
+            </div>
         </div>
     <?php
     }

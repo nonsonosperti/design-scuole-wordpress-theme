@@ -431,7 +431,7 @@ get_header();
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <div class="col-lg-12  px-0 wysiwig-text">
-                                                <?php echo wpautop($libri_testo_descrizione); ?>
+                                                <?php echo  apply_filters("the_content",$libri_testo_descrizione); ; ?>
                                             </div>
                                             <div class="card-deck card-deck-spaced">
                                                 <?php global $idfile, $nomefile;

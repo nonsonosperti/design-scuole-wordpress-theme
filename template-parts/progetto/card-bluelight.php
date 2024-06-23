@@ -4,14 +4,18 @@ $autore = get_user_by("ID", $progetto->post_author);
 $post = $progetto;
 ?>
 
+<<<<<<< HEAD
+    <div class="card card-bg card-thumb-rounded mb-3 h-100">
+=======
     <div class="card card-bg bg-white card-thumb-rounded mb-3 h-100">
+>>>>>>> merge
         <div class="card-body">
             <div class="card-content">
                 <a href="<?php echo get_permalink($progetto); ?>" class="project-card-title"><h3 class="mb-0"><?php echo $progetto->post_title; ?></h3></a>    
                 <p class="mb-4 mt-3"><?php  echo dsi_get_meta("descrizione" , '_dsi_scheda_progetto_', $progetto->ID); ?></p>
             </div>
         </div><!-- /card-body -->
-        <div class="card-top badge-container mb-3">
+        <!-- <div class="card-top badge-container mb-3">
             <?php
             $argomenti = dsi_get_argomenti_of_post();
              foreach ( $argomenti as $item ) { ?>
@@ -38,6 +42,12 @@ $post = $progetto;
             */ ?>
         </div>
         <div class="card-comments-wrapper mb-1">
+<<<<<<< HEAD
+            <?php // get_template_part("template-parts/autore/card"); ?>
+        </div>/card-comments-wrapper -->
+    </div><!-- /card -->
+=======
             <?php get_template_part("template-parts/autore/card"); ?>
         </div><!-- /card-comments-wrapper -->
     </div><!-- /card -->
+>>>>>>> merge

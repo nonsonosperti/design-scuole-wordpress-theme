@@ -6,7 +6,7 @@ if(trim($citazione) != ""){
 	?>
 	<section class="section py-4 bg-redbrown big-quote-wrapper">
 		<div class="big-quote-bg quote">
-      <svg width="100%" height="100%" viewBox="0 0 1280 463" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+      <!-- <svg width="100%" height="100%" viewBox="0 0 1280 463" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
         <g id="Quote-Desktop" serif:id="Quote/Desktop">
         <rect id="red-to-red" x="0" y="0" width="1280" height="463" style="fill:url(#_Linear1);"></rect>
         <path id="Path-11" d="M1193.68,448.626l-1193.68,-215.78l0,-232.846l1280,0l0,463l-86.32,-14.374Z" style="fill:url(#_Linear2);"></path>
@@ -34,7 +34,7 @@ if(trim($citazione) != ""){
         </linearGradient>
         </defs>
         </svg>
-        <g id="Quote-Desktop" serif:id="Quote/Desktop">
+         <g id="Quote-Desktop" serif:id="Quote/Desktop">
           <rect id="red-to-red" x="0" y="0" width="1280" height="463" style="fill:url(#_Linear1);"/>
           <path id="Path-11" d="M1193.68,448.626l-1193.68,-215.78l0,-232.846l1280,0l0,463l-86.32,-14.374Z" style="fill:url(#_Linear2);"/>
           <path id="Path-11-Copy" d="M915.875,0l364.125,3l0,460l-364.125,-463Z" style="fill:url(#_Linear3);"/>
@@ -60,13 +60,13 @@ if(trim($citazione) != ""){
             <stop offset="1" style="stop-color:#d1344c;stop-opacity:1"/>
           </linearGradient>
         </defs>
-      </svg>
+      </svg> -->
 		</div>
 		<div class="container">
 			<div class="row variable-gutters justify-content-center">
 				<div class="col-md-10">
 					<div class="big-quote">
-						<h2><?php echo $citazione; ?></h2>
+						<h2 style="font-size: 5rem"><?php echo $citazione; ?></h2>
 					</div><!-- /big-quote -->
 				</div><!-- /col-md-10 -->
 			</div><!-- /row -->
