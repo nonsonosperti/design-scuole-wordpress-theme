@@ -139,15 +139,14 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-        // image size
-        if ( function_exists( 'add_image_size' ) ) {
-            add_image_size( 'article-simple-thumb', 500, 384 , true);
-            add_image_size( 'item-thumb', 280, 280 , true);
-            add_image_size( 'item-gallery', 730, 485 , true);
-            add_image_size( 'vertical-card', 190, 290 , true);
-
-            add_image_size( 'banner', 600, 250 , false);
-        }
+		// image size
+		if ( function_exists( 'add_image_size' ) ) {
+			$thumbnailsizes = dsi_get_img_thumbnails();
+			
+			foreach ($thumbnailsizes as &$size) {
+				add_image_size($size["name"], $size["width"], $size["height"] , $size["crop"]);
+			}
+		}
 
         // This theme uses wp_nav_menu()
 		register_nav_menus( array(
@@ -158,6 +157,7 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 			/*'menu-classe' => esc_html__( 'Sottovoci del menu principale, voce "La mia classe"', 'design_scuole_italia' ),*/
 			'menu-topright' => esc_html__( 'Menu secondario (in alto a destra)', 'design_scuole_italia' ),
 			'menu-footer' => esc_html__( 'Menu a piè di pagina', 'design_scuole_italia' ),
+			'menu-utente' => esc_html__( 'Menu utente', 'design_scuole_italia' ),
 		) );
 
 	}
@@ -328,7 +328,12 @@ function breadcrumb_fix( $string, $arg1 ) {
 		$string = str_replace("Documenti", "Le carte della scuola",$string);
 		$string = str_replace("Strutture", "Organizzazione",$string);
 		$string = str_replace("?post_type=indirizzo","",$string);
-		$string = str_replace("Indirizzo di Studio", "Indirizzi di studio",$string);
+		$string = str_replace("Indirizzo di Studio", "Percorsi di studio",$string);
+		$string = str_replace("Luoghi", "I luoghi",$string);
+		$string = str_replace("Schede Progetti", "I progetti delle classi",$string);
+		$string = str_replace("Schede Didattiche", "Le schede didattiche",$string);
+		$string = str_replace("Tutti i Servizi", "Tutti i servizi",$string);		
+		$string = str_replace("La Storia", "La storia",$string);
 
     return $string;
 }
@@ -453,3 +458,40 @@ function reserved_file_check(){
 	}
 }
 add_action( 'init', 'reserved_file_check', 10, 2);
+
+// aggiungi data elements alla pagina note-legali
+function insert_data_attribute_note_legali( $content ) {
+	if (is_page( 'note-legali')) {
+		$search  = array('<h2>Licenza dei contenuti', '<p>In applicazione del principio');
+		$replace = array('<h2 data-element="legal-notes-section">Licenza dei contenuti', '<p data-element="legal-notes-body">In applicazione del principio');
+	return str_replace($search, $replace, $content);
+
+	}   
+	else return $content; 
+	}
+add_filter('the_content', 'insert_data_attribute_note_legali');
+
+// anonimizza i dati in caso di opzione privacy attiva
+function rest_remove_extra_user_data($response, $user, $request) {
+	$privacy_hidden = get_user_meta( $response->data['id'], '_dsi_persona_privacy_hidden', true);
+
+	if(!$privacy_hidden || $privacy_hidden == 'true') {
+		$response->data['name'] = 'Protected user';
+
+    	unset($response->data['link']);
+    	unset($response->data['slug']);
+    	unset($response->data['avatar_urls']);
+	}
+
+	return $response;
+}
+add_filter("rest_prepare_user", "rest_remove_extra_user_data", 12, 3);
+
+//redireziona gli utenti alla pagina iniziale dopo il login (se non sono impostati redirect)
+function dsi_login_redirect( $redirect_to, $request, $user ) {
+	// Senza impostare il redirect a 'wp-admin' (nonostante $redirect_to punti a quella pagina di default),
+	// gli utenti sottoscrittori che effetuano il login si ritroverebbero in /wp-admin/profile.php, che può essere disorientante.
+	return str_ends_with($redirect_to, '/wp-admin/') ? 'wp-admin' : $redirect_to;
+}
+
+add_filter( 'login_redirect', 'dsi_login_redirect', 10, 3 );

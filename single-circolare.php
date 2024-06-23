@@ -118,11 +118,21 @@ $file_documenti = dsi_get_meta("file_documenti");
                                         $autore = get_user_by("ID", $idutente);
                                         ?>
                                         <div class="card card-avatar card-comments">
-                                            <a href="<?php echo get_author_posts_url( $autore->ID);  ?>">
+                                            <?php
+												$privacy_hidden = get_user_meta( $autore->ID, '_dsi_persona_privacy_hidden', true);
+                        
+												if($privacy_hidden == "false") {
+													?><a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php
+												}
+												?>
                                                 <div class="card-body">
                                                     <?php get_template_part("template-parts/autore/card"); ?>
                                                 </div>
-                                            </a>
+											<?php
+												if($privacy_hidden == "false") {
+												    ?></a><?php
+											    }
+										    ?>
                                         </div><!-- /card card-bg card-avatar rounded -->
                                         <?php
                                     }
@@ -134,7 +144,7 @@ $file_documenti = dsi_get_meta("file_documenti");
 						if ($post_tags) {
 							echo '<h2 class="h4">Tipologia</h2>';
 							foreach($post_tags as $tag) {
-							echo '<a href="'.get_tag_link($tag->term_id).'" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a><br>';
+                                echo '<a href="'.get_tag_link($tag->term_id).'" class="badge badge-sm badge-pill badge-outline-greendark" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a><br>';
 							}
 						}
 					?>
