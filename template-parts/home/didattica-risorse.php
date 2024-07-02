@@ -22,7 +22,6 @@ if((is_array($progetti) && count($progetti)) || (is_array($scheda_didattica) && 
                 <div class="col-lg-8">
                     <div class="row variable-gutters pt-5">
                         <?php
-                        // todo: programma materia
                         /*
                         <div class="col-lg-4">
                             <div class="card card-bg card-icon-main rounded mb-3">
