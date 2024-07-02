@@ -11970,7 +11970,7 @@ body.push-body.push-body-search #main-header:after, body.push-body.push-body-tol
 
 @media (max-width:991.98px) {
     .responsive-tabs-aside {
-        border-bottom: 1px solid #d8d8d8;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
         margin-left: -10px;
         margin-right: -10px
     }
@@ -15084,19 +15084,19 @@ button.icon-text {
 }
 
 .nav-list-mobile .nav-list-primary>li.text-redbrown .dl-back a, .nav-list-mobile .nav-list-primary>li.text-redbrown>a {
-    color: #d1344c
+    color: #D1451A
 }
 
 .nav-list-mobile .nav-list-primary>li.text-greendark .dl-back a, .nav-list-mobile .nav-list-primary>li.text-greendark>a {
-    color: #0e865c
+    color: #D1451A
 }
 
 .nav-list-mobile .nav-list-primary>li.text-purplelight .dl-back a, .nav-list-mobile .nav-list-primary>li.text-purplelight>a {
-    color: #b21dd0
+    color: #D1451A
 }
 
 .nav-list-mobile .nav-list-primary>li.text-bluelectric .dl-back a, .nav-list-mobile .nav-list-primary>li.text-bluelectric>a {
-    color: #0d00ff
+    color: #D1451A
 }
 
 .nav-list-mobile .nav-list-primary>li>ul.menu-dropdown-simple {
