@@ -5,7 +5,7 @@ if($servizio->post_status == "publish") {
     <div class="card card-bg card-noicon rounded">
         <a href="<?php echo get_permalink($servizio); ?>" aria-label="<?php echo $servizio->post_title; ?>">
             <div class="card-body">
-                <div class="card-icon-content" id="card-desc-<?php echo $servizio->ID; ?>"  style="text-align: center">
+                <div class="card-icon-content" id="card-desc-<?php echo $servizio->ID; ?>"  style="text-align: center; max-width: 270px; max-height: 70px; object-fit: contain">
 					 <?php
                                     $image_id= get_post_thumbnail_id($servizio);
                                     if(has_post_thumbnail($servizio))
