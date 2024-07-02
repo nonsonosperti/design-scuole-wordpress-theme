@@ -9,7 +9,7 @@ $home_servizi_manuali = dsi_get_option("home_servizi_manuali", "homepage");
         $home_is_selezione_automatica_servizi = dsi_get_option("home_is_selezione_automatica_servizi", "homepage");
         if($home_is_selezione_automatica_servizi != "false"){
             $args = array('post_type' => 'servizio',
-                'posts_per_page' => -1,
+                'posts_per_page' => 10,
             );
             $servizi = get_posts($args);
             foreach ($servizi as $servizio) {
