@@ -12161,11 +12161,13 @@ body.push-body.push-body-search #main-header:after, body.push-body.push-body-tol
         position: relative;
         z-index: 0;
     }
+
+    #tab-54 .h3, #tab-54 .h4{
+        display: none;
+    }
 }
 
-#tab-54 .h3, #tab-54 .h4{
-    display: none;
-}
+
 
 .responsive-tabs-wrapper .title-large .h3, .responsive-tabs-wrapper .title-large h3 {
     color: #000 !important;
