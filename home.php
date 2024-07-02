@@ -30,7 +30,7 @@ get_header();
 			<div class="row variable-gutters justify-content-center">
 				<div class="col-md-10">
 					<div class="big-quote">
-						<h2 id="quote-home-custom"><em>il futuro</em> ha il cuore antico.</h2>
+						<h2 style="color: #EA7653"><em>il futuro</em> ha il cuore antico.</h2>
 					</div><!-- /big-quote -->
 				</div><!-- /col-md-10 -->
 			</div><!-- /row -->
