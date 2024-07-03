@@ -109,48 +109,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
         $ct++;
     }
 
-    if($home_show_events != "false") { ?>
-
-        <div class="col-lg-12">
-
-        <!-- <div class="title-section <?php if($home_show_events == "true_event") echo 'pb-4'; ?>"> -->
-        <div class="title-section pb-4">
-            <h2><?php _e("Prossimi Eventi", "design_scuole_italia"); ?></h2>
-        </div><!-- /title-section -->
-
-        <?php
-        if ($home_show_events == "true_event") {
-            $args = array('post_type' => 'evento',
-                'posts_per_page' => 1,
-                'meta_key' => '_dsi_evento_timestamp_inizio',
-                'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC'),
-                'meta_query' => array(
-                    array(
-                        'key' => '_dsi_evento_timestamp_inizio'
-                    ),
-                    array(
-                        'key' => '_dsi_evento_timestamp_inizio',
-                        'value' => time(),
-                        'compare' => '>=',
-                        'type' => 'numeric'
-                    )
-                )
-            );
-            $posts = get_posts($args);
-            foreach ($posts as $post) {
-                get_template_part("template-parts/evento/card");
-            }
-        }else {
-            // $calendar_card = true;
-            // get_template_part("template-parts/evento/full_calendar");
-        }
-        ?>
-        <div class="py-4">
-            <a class="text-underline" href="<?php echo get_post_type_archive_link("evento"); ?>?archive=true"><strong><?php _e("Consulta l'archivio", "design_scuole_italia"); ?></strong></a>
-        </div>
-        </div><!-- /col-lg-4 -->
-    <?php
-    }
+    
 
     if($home_show_circolari != "false") { ?>
     <?php
@@ -195,8 +154,51 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
          Modifica per Liceo Pitagora     
          */
-        ?>
+        
 
+if($home_show_events != "false") { ?>
+
+<div class="col-lg-12">
+
+<!-- <div class="title-section <?php if($home_show_events == "true_event") echo 'pb-4'; ?>"> -->
+<div class="title-section pb-4">
+    <h2><?php _e("Prossimi Eventi", "design_scuole_italia"); ?></h2>
+</div><!-- /title-section -->
+
+<?php
+if ($home_show_events == "true_event") {
+    $args = array('post_type' => 'evento',
+        'posts_per_page' => 1,
+        'meta_key' => '_dsi_evento_timestamp_inizio',
+        'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC'),
+        'meta_query' => array(
+            array(
+                'key' => '_dsi_evento_timestamp_inizio'
+            ),
+            array(
+                'key' => '_dsi_evento_timestamp_inizio',
+                'value' => time(),
+                'compare' => '>=',
+                'type' => 'numeric'
+            )
+        )
+    );
+    $posts = get_posts($args);
+    foreach ($posts as $post) {
+        get_template_part("template-parts/evento/card");
+    }
+}else {
+    // $calendar_card = true;
+    // get_template_part("template-parts/evento/full_calendar");
+}
+?>
+<div class="py-4">
+    <a class="text-underline" href="<?php echo get_post_type_archive_link("evento"); ?>?archive=true"><strong><?php _e("Consulta l'archivio", "design_scuole_italia"); ?></strong></a>
+</div>
+</div><!-- /col-lg-4 -->
+<?php
+}
+?>
         <div class="col-lg-12">
         <div class="title-section pb-4">
                 <h2><?php _e("Albo Online", "design_scuole_italia"); ?></h2>
